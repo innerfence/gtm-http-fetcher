@@ -722,10 +722,6 @@ totalBytesExpectedToSend:0];
   // we no longer need to be able to cancel this chunkFetcher
   [self destroyChunkFetcher];
 
-  // We may in the future handle Retry-After and ETag headers per
-  // http://code.google.com/p/gears/wiki/ResumableHttpRequestsProposal
-  // but they are not currently sent by the upload server
-
   [self uploadNextChunkWithOffset:newOffset
                 fetcherProperties:props];
 }

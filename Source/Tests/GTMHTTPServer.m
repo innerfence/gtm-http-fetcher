@@ -540,20 +540,20 @@ startFailed:
   [super dealloc];
 }
 
-+ (id)responseWithString:(NSString *)plainText {
++ (instancetype)responseWithString:(NSString *)plainText {
   NSData *body = [plainText dataUsingEncoding:NSUTF8StringEncoding];
   return [self responseWithBody:body
                     contentType:@"text/plain; charset=UTF-8"
                      statusCode:200];
 }
 
-+ (id)responseWithHTMLString:(NSString *)htmlString {
++ (instancetype)responseWithHTMLString:(NSString *)htmlString {
   return [self responseWithBody:[htmlString dataUsingEncoding:NSUTF8StringEncoding]
                     contentType:@"text/html; charset=UTF-8"
                      statusCode:200];
 }
 
-+ (id)responseWithBody:(NSData *)body
++ (instancetype)responseWithBody:(NSData *)body
            contentType:(NSString *)contentType
             statusCode:(int)statusCode {
   return [[[[self class] alloc] initWithBody:body
@@ -561,7 +561,7 @@ startFailed:
                                   statusCode:statusCode] autorelease];
 }
 
-+ (id)emptyResponseWithCode:(int)statusCode {
++ (instancetype)emptyResponseWithCode:(int)statusCode {
   return [[[[self class] alloc] initWithBody:nil
                                  contentType:nil
                                   statusCode:statusCode] autorelease];

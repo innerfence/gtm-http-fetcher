@@ -1939,6 +1939,10 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
 #if STRIP_GTM_FETCH_LOGGING
 + (void)setLoggingEnabled:(BOOL)flag {
 }
+
++ (BOOL)isLoggingEnabled {
+  return NO;
+}
 #endif // STRIP_GTM_FETCH_LOGGING
 
 @end

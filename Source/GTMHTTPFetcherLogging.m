@@ -34,7 +34,7 @@
 // do not need to import the header, as some projects may not have it available
 #ifndef GTM_NSSTREAM_DELEGATE
 @interface GTMReadMonitorInputStream : NSInputStream
-+ (id)inputStreamWithStream:(NSInputStream *)input;
++ (instancetype)inputStreamWithStream:(NSInputStream *)input;
 @property (assign) id readDelegate;
 @property (assign) SEL readSelector;
 @property (retain) NSArray *runLoopModes;
@@ -417,7 +417,7 @@ static NSString *gLogDirectoryForCurrentRun = nil;
   // and turn that munged buffer an NSString.  That gives us a string
   // we can use with NSScanner.
   NSMutableData *mutableData = [NSMutableData dataWithData:data];
-  unsigned char *bytes = [mutableData mutableBytes];
+  unsigned char *bytes = (unsigned char *)[mutableData mutableBytes];
 
   for (unsigned int idx = 0; idx < [mutableData length]; idx++) {
     if (bytes[idx] > 0x7F || bytes[idx] == 0) {

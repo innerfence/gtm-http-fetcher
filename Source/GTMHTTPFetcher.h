@@ -260,7 +260,9 @@
 #endif
 
 #if TARGET_OS_IPHONE && (__IPHONE_OS_VERSION_MAX_ALLOWED >= 40000)
-  #define GTM_BACKGROUND_FETCHING 1
+  #ifndef GTM_BACKGROUND_FETCHING
+    #define GTM_BACKGROUND_FETCHING 1
+  #endif
 #endif
 
 #ifndef GTM_ALLOW_INSECURE_REQUESTS
@@ -847,6 +849,7 @@ NSString *GTMApplicationIdentifier(NSBundle *bundle);
 // if logging is stripped, provide a stub for the main method
 // for controlling logging
 + (void)setLoggingEnabled:(BOOL)flag;
++ (BOOL)isLoggingEnabled;
 #endif // STRIP_GTM_FETCH_LOGGING
 
 @end
